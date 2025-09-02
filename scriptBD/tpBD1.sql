@@ -209,14 +209,24 @@ CREATE TABLE TURNOS_SERVICIOS (
 -- ==============================
 -- MEDICAMENTOS
 -- ==============================
+CREATE TABLE TIPOS_MEDICAMENTO(
+	id_tipo int identity (1,1),
+	descripcion varchar (50) not null,
+
+	Constraint pk_tp_medicamento primary key (id_tipo)
+);
 
 CREATE TABLE MEDICAMENTOS (
     id_medicamento INT IDENTITY(1,1),
     nombre_medicamento VARCHAR(100) NOT NULL,
     descripcion VARCHAR(500) NULL,
+	id_tipo int not null
 	CONSTRAINT pk_medicamentos PRIMARY KEY (id_medicamento)
-
+	CONSTRAINT fk_tp_medicamento foreign key (id_tipo)
+	REFERENCES TIPOS_MEDICAMENTO(id_tipo)
 );
+
+
 
 CREATE TABLE TURNOS_MEDICAMENTOS (
     id_turnos_medicamento INT NOT NULL,
