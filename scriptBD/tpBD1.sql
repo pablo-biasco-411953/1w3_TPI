@@ -55,7 +55,14 @@ CREATE TABLE DOMICILIOS (
     CONSTRAINT pk_domicilios PRIMARY KEY (id_domicilio),
     CONSTRAINT fk_domicilios_localidades FOREIGN KEY (id_localidad) REFERENCES LOCALIDADES(id_localidad)
 );
-
+-- ==============================
+-- MUTUAL
+-- ==============================
+CREATE TABLE MUTUALES(
+	id_mutual int IDENTITY(1,1),
+	descripcion varchar (60),
+	CONSTRAINT pk_mutuales PRIMARY KEY (id_mutual)
+);
 -- ==============================
 -- PACIENTES
 -- ==============================
@@ -68,11 +75,13 @@ CREATE TABLE PACIENTES (
     id_raza INT NOT NULL,
     id_especie INT NOT NULL,
     id_domicilio INT NULL,
+	id_mutual INT NULL,
     observaciones VARCHAR(500) NULL,
 	CONSTRAINT pk_pacientes PRIMARY KEY (id_paciente),
     CONSTRAINT fk_pacientes_razas FOREIGN KEY (id_raza) REFERENCES RAZAS(id_raza),
     CONSTRAINT fk_pacientes_especies FOREIGN KEY (id_especie) REFERENCES ESPECIES(id_especie),
-    CONSTRAINT fk_pacientes_domicilio FOREIGN KEY (id_domicilio) REFERENCES DOMICILIOS(id_domicilio)
+    CONSTRAINT fk_pacientes_domicilio FOREIGN KEY (id_domicilio) REFERENCES DOMICILIOS(id_domicilio),
+	CONSTRAINT fk_pacientes_mutual FOREIGN KEY (id_mutual) REFERENCES MUTUALES(id_mutual)
 );
 
 -- ==============================
