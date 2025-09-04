@@ -316,3 +316,4 @@ CREATE TABLE PAGOS (
     CONSTRAINT fk_pagos_formas_pago FOREIGN KEY (id_forma_pago) REFERENCES FORMAS_PAGO(id_forma_pago)
 );
 
+-- hola estu muito agradeseo
