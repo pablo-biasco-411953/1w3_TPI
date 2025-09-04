@@ -17,9 +17,7 @@ CREATE TABLE ESPECIES (
 CREATE TABLE RAZAS(
     id_raza INT IDENTITY(1,1) NOT NULL,
     nombreRaza VARCHAR(200) NOT NULL,
-    id_especie INT NOT NULL,
-    CONSTRAINT pk_razas PRIMARY KEY (id_raza),
-    CONSTRAINT fk_razas_especies FOREIGN KEY (id_especie) REFERENCES ESPECIES(id_especie)
+    CONSTRAINT pk_razas PRIMARY KEY (id_raza)
 );
 -- ==============================
 -- UBICACIONES
